@@ -30,32 +30,47 @@ export default function IndexWelcome() {
         const content = data.allBaseYaml.edges[0].node.data;
 
         // helper render markdown
-        const renderMD = text => marked(text.replace(/(?:\r\n|\r|\n)/g, '<br/>'));
+        const renderMD = text =>  {if (typeof text !== 'string')
+           return ''; return marked(text);
+        }
 
         return (
-          <div id="landing-welcome">
+           <div id="landing-welcome">
             <div className="section-title">Selamat Datang</div>
             <div
               className="intro-text"
               dangerouslySetInnerHTML={{ __html: renderMD(content.welcomeMessage) }}
             />
-            <div className="grid-2-col">
-              <div className="col">
-                <h3>Visi</h3>
-                <div dangerouslySetInnerHTML={{ __html: renderMD(content.vision) }} />
+                 <div id="welcome">
+                  <div className="visi-misi-wrapper">
+                    {/* Baris 1: Visi + Sasaran */}
+                    <div className="row">
+                      <div className="box">
+                      <h3 className="title">Visi</h3>
+                      <div dangerouslySetInnerHTML={{ __html: renderMD(content.vision) }} />
+                    </div>
+                    <div className="box">
+                      <h3 className="title">Sasaran Mutu Institusi</h3>
+                      <div dangerouslySetInnerHTML={{ __html: renderMD(content.qualityObjectives) }} />
+                    </div>
+                  </div>
 
-                <h3>Sasaran Mutu Institusi</h3>
-                <div dangerouslySetInnerHTML={{ __html: renderMD(content.qualityObjectives) }} />
-              </div>
-              <div className="col">
-                <h3>Misi</h3>
-                <div dangerouslySetInnerHTML={{ __html: renderMD(content.mission) }} />
+                  {/* Baris 2: Misi + Kebijakan */}
+                    <div className="row">
+                      <div className="box">
+                      <h3 className="title">Misi</h3>
+                      <div dangerouslySetInnerHTML={{ __html: renderMD(content.mission) }} />
+                    </div>
 
-                <h3>Kebijakan Mutu Institusi</h3>
-                <div dangerouslySetInnerHTML={{ __html: renderMD(content.qualityPolicy) }} />
+
+                  <div className="box">
+                    <h3 className="title">Kebijakan Mutu Institusi</h3>
+                    <div dangerouslySetInnerHTML={{ __html: renderMD(content.qualityPolicy) }} />
               </div>
-            </div>
+                </div>
+              </div>
           </div>
+        </div>
         );
       }}
     />
