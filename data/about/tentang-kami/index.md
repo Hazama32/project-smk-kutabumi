@@ -7,17 +7,24 @@ image: ./kunjungan-industri.jpg
 
 **SMK Bina Mandiri Kutabumi Tangerang**, Sekolah Kejuruan Vokasi siap trampil, cerdas, berilmu, profesional dan mandiri.
 
-<div style="text-align: center;">
-<h2>Visi</h2>
-</div>
-Membentuk sumber daya manusia yang berwawasan global dengan mencetak tenaga trampil, cerdas, berilmu, profesional, dan mandiri.
-<div style="text-align: center;">
-<h2>Misi</h2>
+<div class="visi-misi-container">
+  <div class="box">
+    <h2 class="title">Visi</h2>
+    <p class="desc">
+      Menjadi penyedia informasi terpercaya di Tangerang.
+    </p>
+  </div>
+  <div class="box">
+    <h2 class="title">Misi</h2>
+      <li>Menghadirkan konten informatif, edukatif, dan menghibur.</li>
+      <li>Menyiapkan generasi unggul yang memiliki potensi di bidang IMTAQ dan IPTEK.</li>
+      <li>Membentuk sumber daya yang kreatif dan inovatif sesuai perkembangan zaman.</li>
+      <li>Membentuk sumber daya yang cerdas, profesional dan mandiri.</li>
+      <li>Menciptakan sekolah sebagai sarana pendidikan yang berkualitas.</li>
+    </ul>
+  </div>
 </div>
 
-* Menyiapkan generasi unggul yang memiliki potensi dibidang IMTAQ dan IPTEK.
-* Membentuk sumber daya yang kreatif, inovatif sesuai dengan perkembangan zaman.
-* Membentuk sumber daya yang cerdas, profesional dan mandiri.
-* Menciptakan sekolah sebagai sarana pendidikan yang berkualitas.
-* Menjalin kerjasama yang harmonis antara warga sekolah dan lingkungan sekolah.
-* Mengembangkan proses belajar mengajar yang bernuansa agamis.
+
+
+

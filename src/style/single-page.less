@@ -1,101 +1,240 @@
 @import 'color';
 
 .page-contents {
-    background: #fff;
-    margin: 30px auto;
+  background: #fff;
+  margin: 40px auto;
 
-    .title {
-        padding: 42px 0;
-        text-align: center;
+  .title {
+    padding: 12px 0; // sebelumnya 42px, dikurangi agar dropdown bisa diklik
+    text-align: center;
+  }
+
+  .contents {
+    padding: 20px 30px;
+    overflow: auto;
+
+    .btn {
+      margin: 12px;
     }
-    .contents {
-        padding: 20px 30px;
-        overflow: auto;
 
-        .btn{
-            margin: 12px;
-        }
-
-        p,
-        ul,
-        table {
-            margin: 20px 0;
-        }
-
-        .col {
-            padding: 15px;
-        }
-
-        .font-2 {
-            margin: 22px 0;
-        }
-
-        table {
-            width: 100%;
-            margin: 42px 0;
-            border-collapse: collapse;
-
-            thead {
-                background: #fff;
-                color: @primaryColor;
-                border: 2px solid @primaryColor;
-                border-width: 2px 0px;
-
-                tr {
-                    th {
-                        padding: 12px;
-                    }
-                }
-            }
-            tbody {
-                tr {
-                    td {
-                        padding: 15px 10px;
-                    }
-
-                    &:nth-child(odd) {
-                        background: @sectionColor;
-                    }
-                    &:nth-child(even) {
-                        background: lighten(@extraLightGreen, 5%);
-                    }
-                }
-            }
-        }
+    p,
+    ul,
+    table {
+      margin: 20px 0;
     }
-}
 
-.list {
-    list-style: none;
-    p {
-        margin: 0 !important;
+    .col {
+      padding: 15px;
     }
-    li {
-        padding: 20px 10px;
-        background: lighten(@lightGrey, 5%);
-        &:nth-child(even) {
+
+    .font-2 {
+      margin: 22px 0;
+    }
+
+    table {
+      width: 100%;
+      margin: 42px 0;
+      border-collapse: collapse;
+
+      thead {
+        background: #fff;
+        color: @primaryColor;
+        border: 2px solid @primaryColor;
+        border-width: 2px 0px;
+
+        tr {
+          th {
+            padding: 12px;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          td {
+            padding: 15px 10px;
+          }
+
+          &:nth-child(odd) {
+            background: @sectionColor;
+          }
+
+          &:nth-child(even) {
             background: lighten(@extraLightGreen, 5%);
+          }
         }
+      }
     }
-    .header {
-        i {
-            color: @secondaryColor;
-            margin-right: 5px;
-        }
-        font-weight: bold;
-        font-size: 1em;
-    }
-    .value {
-        margin-left: 30px !important;
-    }
-    div.value {
-        margin-top: 10px !important;
-        margin-bottom: 10px !important;
-    }
+  }
 }
 
-@media only screen and (max-width: 901) {
-    .avatar-image {
-        float: none;
+// === VISI MISI BOX STYLE ===
+.visi-misi-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 60px 80px;
+  flex-wrap: nowrap;
+}
+
+.box {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 300px;
+}
+
+.title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.desc {
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+  margin-top: 0;
+}
+
+// === LIST STYLE ===
+.list {
+  list-style: none;
+
+  p {
+    margin: 0 !important;
+  }
+
+  li {
+    padding: 20px 10px;
+    background: lighten(@lightGrey, 5%);
+
+    &:nth-child(even) {
+      background: lighten(@extraLightGreen, 5%);
     }
+  }
+
+  .header {
+    i {
+      color: @secondaryColor;
+      margin-right: 5px;
+    }
+
+    font-weight: bold;
+    font-size: 1em;
+  }
+
+  .value {
+    margin-left: 30px !important;
+  }
+
+  div.value {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+}
+
+// === RESPONSIVE ===
+@media only screen and (max-width: 901px) {
+  .avatar-image {
+    float: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .visi-misi-container {
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .box {
+    width: 100%;
+  }
+
+  .desc {
+    text-align: left;
+  }
+}
+
+#landing-welcome {
+  padding: 60px 20px;
+
+  .section-title {
+    text-align: center;
+    font-size: 43px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    position: relative;
+    margin-left: auto;
+    color: #333333;
+    margin-right: auto;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 4px;
+      background-color: @primaryColor; // pastikan @primaryColor sudah di-define
+      margin: 12px auto 0 auto;
+      border-radius: 3px;
+    }
+  }
+
+  .intro-text {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+
+  .grid-2-col {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+
+    .col {
+      flex: 1;
+      min-width: 300px;
+
+      h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 12px;
+        color: @primaryColor;
+      }
+
+      p, li {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .grid-2-col {
+      flex-direction: column;
+    }
+
+    .section-title {
+      font-size: 26px;
+    }
+
+    .intro-text {
+      font-size: 16px;
+    }
+  }
 }

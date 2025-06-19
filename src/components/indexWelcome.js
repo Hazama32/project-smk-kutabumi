@@ -1,121 +1,63 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import marked from 'marked';
+import '../style/single-page.less'; // pastikan ini mengarah ke file yang benar
 
-const margin = '22px 0'; // don't judge, too lazy
+const margin = '22px 0';
 
-export default props => (
+export default function IndexWelcome() {
+  return (
     <StaticQuery
-        query={graphql`
-            query welcomeQuery {
-                allBaseYaml {
-                    edges {
-                        node {
-                            id
-                            data {
-                                image {
-                                    publicURL
-                                }
-                                welcomeMessage
-                                mission
-                                qualityObjectives
-                                vision
-                                qualityPolicy
-                            }
-                        }
-                    }
+      query={graphql`
+        query welcomeQuery {
+          allBaseYaml {
+            edges {
+              node {
+                id
+                data {
+                  welcomeMessage
+                  vision
+                  mission
+                  qualityObjectives
+                  qualityPolicy
                 }
+              }
             }
-        `}
-        render={data => (
-            <div id="welcome" className="section">
-                <div className="container">
-                    <div className="title">
-                        <h2 className="underlined">Selamat Datang</h2>
-                    </div>
-                    <div className="contents allow-list-style">
-                        <div className="row">
-                            <div
-                                className="col s12"
-                                dangerouslySetInnerHTML={{
-                                    __html: marked(
-                                        data.allBaseYaml.edges[0].node.data.welcomeMessage.replace(
-                                            /(?:\r\n|\r|\n)/g,
-                                            '<br/>'
-                                        )
-                                    )
-                                }}
-                            />
-                            <div className="col s12 m6 p2">
-                                <p
-                                    className="font-2"
-                                    style={{ margin: margin }}
-                                >
-                                    <b>Visi</b>
-                                </p>
-                                <div
-                                    dangerouslySetInnerHTML={{
-                                        __html: marked(
-                                            data.allBaseYaml.edges[0].node.data.vision.replace(
-                                                /(?:\r\n|\r|\n)/g,
-                                                '<br/>'
-                                            )
-                                        )
-                                    }}
-                                />
-                                <p
-                                    className="font-2"
-                                    style={{ margin: margin }}
-                                >
-                                    <b>Sasaran Mutu Institusi</b>
-                                </p>
-                                <div
-                                    dangerouslySetInnerHTML={{
-                                        __html: marked(
-                                            data.allBaseYaml.edges[0].node.data
-                                                .qualityObjectives
-                                        )
-                                    }}
-                                />
-                            </div>
-                            <div className="col s12 m6 p2">
-                                <p
-                                    className="font-2"
-                                    style={{ margin: margin }}
-                                >
-                                    <b>Misi</b>
-                                </p>
-                                <div
-                                    dangerouslySetInnerHTML={{
-                                        __html: marked(
-                                            data.allBaseYaml.edges[0].node.data.mission.replace(
-                                                /(?:\r\n|\r|\n)/g,
-                                                '<br/>'
-                                            )
-                                        )
-                                    }}
-                                />
-                                <p
-                                    className="font-2"
-                                    style={{ margin: margin }}
-                                >
-                                    <b>Kebijakan Mutu Institusi</b>
-                                </p>
-                                <div
-                                    dangerouslySetInnerHTML={{
-                                        __html: marked(
-                                            data.allBaseYaml.edges[0].node.data.qualityPolicy.replace(
-                                                /(?:\r\n|\r|\n)/g,
-                                                '<br/>'
-                                            )
-                                        )
-                                    }}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          }
+        }
+      `}
+      render={data => {
+        const content = data.allBaseYaml.edges[0].node.data;
+
+        // helper render markdown
+        const renderMD = text => marked(text.replace(/(?:\r\n|\r|\n)/g, '<br/>'));
+
+        return (
+          <div id="landing-welcome">
+            <div className="section-title">Selamat Datang</div>
+            <div
+              className="intro-text"
+              dangerouslySetInnerHTML={{ __html: renderMD(content.welcomeMessage) }}
+            />
+            <div className="grid-2-col">
+              <div className="col">
+                <h3>Visi</h3>
+                <div dangerouslySetInnerHTML={{ __html: renderMD(content.vision) }} />
+
+                <h3>Sasaran Mutu Institusi</h3>
+                <div dangerouslySetInnerHTML={{ __html: renderMD(content.qualityObjectives) }} />
+              </div>
+              <div className="col">
+                <h3>Misi</h3>
+                <div dangerouslySetInnerHTML={{ __html: renderMD(content.mission) }} />
+
+                <h3>Kebijakan Mutu Institusi</h3>
+                <div dangerouslySetInnerHTML={{ __html: renderMD(content.qualityPolicy) }} />
+              </div>
             </div>
-        )}
+          </div>
+        );
+      }}
     />
-);
+  );
+}
