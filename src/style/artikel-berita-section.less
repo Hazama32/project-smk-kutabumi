@@ -1,0 +1,81 @@
+@import 'color';
+.artikel-berita-section {
+  padding: 3rem 1rem;
+  background-color: #f9f9f9;
+
+  .title {
+    text-align: center;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #333;
+
+      &.underlined {
+        position: relative;
+        display: inline-block;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: -8px;
+          transform: translateX(-50%);
+          width: 50px;
+          height: 3px;
+          background-color: #0000ff; // biru sesuai navbar
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+
+  .contents {
+    margin-top: 2rem;
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+
+      .col {
+        flex: 1;
+        min-width: 300px;
+
+        .collection {
+          background: #fff;
+          border-radius: 8px;
+          padding: 1.5rem;
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+          transition: transform 0.5s ease, box-shadow 0.2s ease;
+          &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.2),
+                        0 5px 10px -5px rgba(0, 0, 0, 0.2);
+          }
+
+
+          &.with-header {
+            .collection-header {
+              h4 {
+                font-size: 1.25rem;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 1rem;
+
+                i {
+                  margin-left: 0.5rem;
+                  color: #0000ff;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

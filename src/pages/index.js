@@ -10,6 +10,7 @@ import Programs from '../components/programs';
 import Contact from '../components/contact';
 import announcements from '../style/announcements.module.less';
 import '../style/campus-life.less';
+import '../style/artikel-berita-section.less';
 
 export default class props extends React.Component {
     componentDidMount() {}
@@ -22,7 +23,7 @@ export default class props extends React.Component {
                     id="announcements"
                     className={'section ' + announcements.announcements}
                 >
-                    <div className="container">
+                    <div className="artikel-berita-section">
                         <div className="title">
                             <h2 className="underlined">
                                 Artikel and Berita
