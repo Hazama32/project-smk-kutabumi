@@ -2,7 +2,7 @@
 title: Tata Busana (Garment)
 name: ak
 template: programs
-image: ./itlogo1.png
+image: ./tata-busana.png
 banner: ./newit1.jpg
 intro: "Jurusan Tata Busana adalah Jurusan yang diperuntukkan bagi mereka yang ingin mengembangkan bakat dan minatnya dalam hal jahit menjahit, sampai dengan membuat produk yang berkualitas. Pada intinya jurusan ini mengakomodir para siswa yang memiliki minat dalam hal fashion."
 vision: "Menjadi program keahlian berkualitas yang diakui yang menawarkan pendidikan profesional berkualitas tinggi yang mengarah ke keunggulan praktis bagi sejumlah besar siswa berbakat."

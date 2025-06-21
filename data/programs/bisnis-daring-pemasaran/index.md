@@ -2,7 +2,7 @@
 title: Bisnis Daring dan Pemasaran (Online)
 name: bdp
 template: programs
-image: ./cslogo.png
+image: ./bisnismarketing.jpeg
 banner: ./ash1.jpg
 intro: "Bisnis daring dan pemasaran adalah sebuah kompetensi jurusan pada bidang Sekolah Menengah Kejuruan Bisnis dan Manajemen yang mempelajari keilmuan dan praktik tentang bidang pemasaran dan pengembangan bisnis online melalui media Internet. "
 vision: "Menjadi program dan jurusan Bisnis daring dan pemasaran terkemuka yang diakui yang menawarkan pendidikan profesional berkualitas tinggi yang mengarah ke keunggulan praktis bagi sejumlah besar siswa berbakat."
